@@ -24,14 +24,31 @@ local function PositionReloadButton()
 
     btn:ClearAllPoints()
 
-    if GameMenuButtonContinue then
-        btn:SetPoint("BOTTOM", GameMenuButtonContinue, "TOP", 0, 1)
-        btn:SetSize(GameMenuButtonContinue:GetSize())
-    elseif GameMenuFrame.BottomButtons then
-        -- Neuere Menüs haben Container für Bottom Buttons
-        btn:SetPoint("BOTTOM", GameMenuFrame.BottomButtons, "TOP", 0, 4)
+    -- Font immer setzen
+    btn:SetNormalFontObject(GameFontNormalLarge)
+    btn:SetHighlightFontObject(GameFontHighlightLarge)
+    btn:SetDisabledFontObject(GameFontDisableLarge)
+
+    -- Prüfen, ob SpartanUI geladen ist
+    local isSpartan = C_AddOns and C_AddOns.IsAddOnLoaded and C_AddOns.IsAddOnLoaded("SpartanUI")
+
+    if isSpartan then
+        if GameMenuButtonOptions then
+            btn:SetPoint("TOP", GameMenuButtonOptions, "BOTTOM", 0, -2)
+        else
+            btn:SetPoint("TOP", GameMenuFrame, "TOP", 0, -20)
+        end
+        btn:SetSize(200, 28)
+        D("SpartanUI erkannt: Position angepasst")
     else
-        btn:SetPoint("BOTTOM", GameMenuFrame, "BOTTOM", 0, 14)
+        if GameMenuButtonContinue then
+            btn:SetPoint("BOTTOM", GameMenuButtonContinue, "TOP", 0, 1)
+            btn:SetSize(GameMenuButtonContinue:GetSize())
+        elseif GameMenuFrame.BottomButtons then
+            btn:SetPoint("BOTTOM", GameMenuFrame.BottomButtons, "TOP", 0, 4)
+        else
+            btn:SetPoint("BOTTOM", GameMenuFrame, "BOTTOM", 0, 14)
+        end
     end
 
     btn:Show()
