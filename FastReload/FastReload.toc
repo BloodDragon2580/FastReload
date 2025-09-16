@@ -4,7 +4,7 @@
 ## Notes: Adds a Game Menu button and slash command to quickly reload the UI.
 ## Notes-ruRU: Добавляет кнопку в игровом меню и команду для быстрой перезагрузки интерфейса.
 ## Author: BloodDragon2580
-## Version: 1.4
+## Version: 1.5
 ## SavedVariables: FastReloadDB
 ## IconTexture: Interface\AddOns\FastReload\Media\Texture\logo
 
