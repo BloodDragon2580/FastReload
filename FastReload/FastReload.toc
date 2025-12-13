@@ -1,4 +1,4 @@
-## Interface: 120000
+## Interface: 120001
 ## Title: |cffd6266cFastReload|r
 ## Title-ruRU: |cff66ccffБыстрая перезагрузка|r
 ## Notes: Adds a Game Menu button and slash command to quickly reload the UI.
